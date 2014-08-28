@@ -1,0 +1,37 @@
+﻿<?php $this->headTitle()->append('Administracja galerii') ?>
+<?= $this->render('imageCategoryMenu.phtml') ?>
+
+<section>
+    <div class="row">
+        <div class="large-4 columns">
+            <div class="panel">
+                <h5>Kategorie zdjęć w galerii</h5>
+                <ul>
+                    <li><a href="/imagecategory/add">Dodaj kategorię zdjęć</a></li>
+                    <li><a href="/imagecategory/list">Edytuj/Usuń kategorię zdjęć</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="large-4 columns">
+            <div class="panel">
+                <h5>Galeria zdjęć</h5>
+                <ul>
+                    <li><a href="/image/upload">Dodaj zdjęcia do galerii</a></li>
+                    <li><a href="/image/edit">Edytuj zdjęcia w galerii</a></li>
+                    <li><a href="/image/configuration">Ustawienia galerii</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="large-4 columns">
+            <div class="panel">
+                <h5>Hasło administratora</h5>
+                <ul>
+                    <li><a href="/user/changeAdminPassword">Zmień</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

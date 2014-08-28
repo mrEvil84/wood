@@ -1,0 +1,21 @@
+<?php $this->headTitle()->append('Kategoria') ?>
+<section>
+    <?php foreach ($this->rows as $row): ?>
+        <div class="row">
+            <?php foreach ($row as $col): ?>
+
+                <div class="large-4 columns">
+                    <div class="panel">
+                        <a
+                            href="/index/gallery?category_id=<?php echo $col['categoryId']; ?>">
+                            <img src="<?php echo $col['categoryThumbName']; ?>" />
+                        </a>
+                        <h5><?php echo $col['categoryName']; ?></h5>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
+</section>
+
+

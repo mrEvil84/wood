@@ -1,0 +1,31 @@
+﻿<section>
+    <div id="nav" class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <a href="/index/gallery?page=<?php echo $this->page; ?>&category_id=<?php echo $this->categoryId; ?>">Powrót</a> *
+                <a href="/index/gallerycategory">Galeria</a>
+            </div>
+        </div>
+</section>
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <?php $this->headTitle()->append('Galeria') ?>
+               
+                <p>
+                <img src="/galleryImages/images/<?php echo $this->imageName; ?>" />
+                </p>              	
+               	<h6><?php echo $this->imageDescription; ?></h6>                
+            </div>
+        </div>
+</section>
+<section>
+    <div id="nav" class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <a href="/index/showsingleimage?page=<?php echo $this->page; ?>&category_id=<?php echo $this->categoryId; ?>&imageId=<?php echo $this->imageId - 1; ?>">&lt; Poprzednie</a>  *
+                <a href="/index/showsingleimage?page=<?php echo $this->page; ?>&category_id=<?php echo $this->categoryId; ?>&imageId=<?php echo $this->imageId + 1; ?>">Następne &gt;</a>   
+            </div>
+        </div>
+</section>

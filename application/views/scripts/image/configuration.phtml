@@ -1,0 +1,27 @@
+<?php $this->headTitle()->append('Konfiguracja') ?>
+
+<?= $this->render('imageCategoryMenu.phtml') ?>
+
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <h5>Ustawienia konfiguracyjne</h5>
+                <form action="/image/configuration" name="galleryConfiguration">
+                    <table class="admin_upoladed_photos_list">
+                        <tr>
+                            <td>Zdjęć na stronę</td>
+                            <td><input type="text" name="imagesPerPageInGallery"
+                                       value="<?php echo $this->imagesPerPageInGallery; ?>" /> <input
+                                       type="hidden" name="imagesPerPageInGalleryId"
+                                       value="<?php echo $this->ImagesPerPageInGalleryId; ?>" />
+                            </td>
+                            <td><input type="submit" name="save" value="Zapisz" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>        
+    </div>
+</section>
+

@@ -1,0 +1,46 @@
+<?php if ($this->update == "true"): ?>
+    <?php $this->headTitle()->append('Aktualizacja kategorii zdjęć') ?>
+<?php else: ?>
+    <?php $this->headTitle()->append('Dodaj kategorię zdjęć') ?>
+<?php endif; ?>
+
+<?= $this->render('imageCategoryMenu.phtml') ?>
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+
+                <?php if ($this->update == "true"): ?>
+                    <h5>Aktualizacja kategorii</h5>
+                <?php else: ?>
+                    <h5>Dodaj kategorię</h5>
+                <?php endif; ?>
+
+
+                <form action="/imagecategory/add" name="addCategory"
+                      enctype="multipart/form-data" method="POST">
+                    <table class="admin_upoladed_photos_list">
+                        <tr>
+                            <?php if ($this->update == "true"): ?>
+                                <td>Aktualizacja kategorii zdjęć</td>
+                            <?php else: ?>
+                                <td>Dodawanie kategorii zdjęć</td>
+                            <?php endif; ?>
+                            <td><input type="text" name="categoryName"
+                                       value="<?php echo $this->categoryName; ?>" /> <input type="file"
+                                       name="categoryImage" id="categoryImage" /> <input type="hidden"
+                                       name="update" value="<?php echo $this->update ?>" /> <input
+                                       type="hidden" name="categoryId"
+                                       value="<?php echo $this->categoryId; ?>" />
+                            </td>
+                            <td><?php if ($this->update == "true"): ?> <input type="submit"
+                                                                                name="save" value="Uaktualnij" /> <?php else: ?> <input
+                                                                                type="submit" name="save" value="Zapisz" /> <?php endif; ?>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>        
+    </div>
+</section>

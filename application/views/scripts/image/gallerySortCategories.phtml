@@ -1,0 +1,27 @@
+<select name="sort_category_id">
+
+	<?php if($this->sort_category_id == -2):?>
+	<option selected value="-2">Wszystkie</option>
+	<?php else:?>
+	<option value="-2">Wszystkie</option>
+	<?php endif;?>
+	
+	<?php if((int)$this->sort_category_id == 0 ):?>
+	<!--<option selected value="0">
+		<p>Galeria</p>
+	</option> -->
+	<?php else:?>
+	<!-- <option value="0">
+		<p>Galeria</p>
+	</option> -->
+	<?php endif;?>
+	<?php for($i=0; $i < count($this->categories) ; $i++): ?>
+	<option
+	<?php if((int)$this->categories[$i]->getId() == (int)$this->sort_category_id):?>
+	<?php echo "selected";?> <?php endif;?>
+		value="<?php echo $this->categories[$i]->getId(); ?>">
+
+		<?php echo $this->categories[$i]->getImageCategoryName(); ?>
+	</option>
+	<?php endfor; ?>
+</select>

@@ -1,0 +1,33 @@
+<select name="category_id">
+    <?php echo $this->category_id; ?>
+
+    <?php if ((int) $this->category_id == "0"): ?>
+        <!-- <option selected value="0">
+        	<p>Galeria</p>
+   		</option>-->
+
+    <?php for ($i = 0; $i < count($this->categories); $i++): ?>
+        <option
+        <?php if ((int) $this->categories[$i]->getId() == (int) $this->category_id): ?>
+            <?php echo "selected"; ?> 
+        <?php endif; ?>
+            value="<?php echo $this->categories[$i]->getId(); ?>">
+            <?php echo $this->categories[$i]->getImageCategoryName(); ?>
+        </option>
+    <?php endfor; ?>
+<?php else: ?>
+	<!-- 
+    <option value="0">
+    <p>Galeria</p>
+    </option>
+    -->
+    <?php for ($i = 0; $i < count($this->categories); $i++): ?>
+        <option
+        <?php if ((int) $this->categories[$i]->getId() == (int) $this->category_id): ?>
+            <?php echo "selected"; ?> <?php endif; ?>
+            value="<?php echo $this->categories[$i]->getId(); ?>">
+                <?php echo $this->categories[$i]->getImageCategoryName(); ?>
+        </option>
+    <?php endfor; ?>
+<?php endif; ?>
+</select>

@@ -1,0 +1,17 @@
+<?php $this->headTitle()->append('Galeria dodaj zdjęcia') ?>		
+<a href="/image/">Administracja galeri</a> |
+<a href="/image/edit">Edytuj zdjęcia w galerii</a>
+		
+<div class="admin_site">
+    <div class="grid_11">
+        <form method="post" action="/image/uploadproceed">
+	        <div class="admin_upload">
+                <div id="html5_uploader" style="width: 450px; height: 330px;">Your browser doesn't support native upload. Try Firefox 3 or Safari 4.</div>
+            </div>
+            
+		    <div class="admin_submit">
+	            <input type="submit" value="Zapisz zdjęcia do galerii" />
+            </div>
+        </form>
+	</div>
+</div>

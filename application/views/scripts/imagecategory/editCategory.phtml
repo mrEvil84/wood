@@ -1,0 +1,26 @@
+<?php $this->headTitle()->append('Galeria edycja') ?>
+
+<a href="/image/">Administracja galeri</a> |
+
+<h5>
+	<a href="/auth/logout">Wyloguj</a>
+</h5>
+<div class="admin_site">
+	<div class="grid_11">
+		<h4>administracja galerii :: dodawanie kategorii zdjęć</h4>
+
+		<form action="/imagecategory/addcategory" name="addCategory">
+			<table>
+				<tr>
+					<td>Dodawanie kategorii zdjęć</td>
+					<td>
+						<input type="text" name="categoryName" value="<?php echo $this->categoryName; ?>" />
+						<input type="text" name="categoryImage" value="<?php echo $this->categoryImage; ?>" />
+					</td>
+					<td><input type="submit" name="save" value="Zapisz" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+

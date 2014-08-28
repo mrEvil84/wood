@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+	<nav>
+		<home>
+			<label>Strona główna</label>
+			<uri>/</uri>
+
+			<pages>
+				<company>
+					<label>Firma</label>
+					<uri>/index/company</uri>
+				</company>
+
+				<technology>
+					<label>Technologia</label>
+					<uri>/index/technology</uri>
+				</technology>
+
+				<gallery>
+					<label>Galeria</label>
+					<uri>/index/gallery</uri>
+				</gallery>
+
+				<installment>
+					<label>Raty</label>
+					<uri>/index/installment</uri>
+				</installment>
+
+				<auctions>
+					<label>Aukcje</label>
+					<uri>/index/auctions</uri>
+				</auctions>
+
+				<about>
+					<label>Kontakt</label>
+					<uri>/index/about</uri>
+				</about>
+			</pages>
+
+		</home>
+	</nav>
+
+</configdata>

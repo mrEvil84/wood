@@ -1,0 +1,34 @@
+<?php $this->headTitle()->append('Galeria dodaj zdjęcia') ?>		
+
+<?= $this->render('imageCategoryMenu.phtml') ?>
+		
+<section>
+    <div class="row">
+        <div class="large-4 columns">
+            <div class="panel">
+            </div>
+        </div>
+        <div class="large-4 columns">
+            <div class="panel">
+                <form method="post" action="/image/uploadproceed">
+                    <h5>1. Dodaj zdjęcia</h5>
+                    <div class="admin_upload">
+                        <div id="html5_uploader" style="width: 450px; height: 330px;">Your browser doesn't support native upload. Try Firefox 3 or Safari 4.</div>
+                    </div>
+                    <!-- name=category_id -->
+                    <h5>2. Wybierz kategorię</h5>
+                    <?= $this->partial('/image/galleryCategories.phtml', array('categories' => $this->categories)) ?>
+
+                    <h5>Zapisz</h5>
+                    <div class="admin_submit">
+                        <input type="submit" value="Zapisz zdjęcia do galerii" />
+                    </div>
+                </form>
+            </div>            
+        </div>
+        <div class="large-4 columns">
+            <div class="panel">
+            </div>
+        </div>        
+    </div>
+</section>

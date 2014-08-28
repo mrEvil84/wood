@@ -1,0 +1,34 @@
+<?php $this->headTitle()->append('Aktualizacja zdjęcia kategorii') ?>
+
+<?= $this->render('imageCategoryMenu.phtml') ?>
+
+<div class="admin_site">
+	<div class="grid_11">
+		<h4>administracja galerii :: uaktualnij zdjęcie kategorii </h4>
+
+		<form action="/imagecategory/imageUpdate" name="imageUpdate" enctype="multipart/form-data" method="POST">
+			<table>
+				<tr>
+					<td>Dodawanie kategorii zdjęć</td>
+					<td>
+						<input type="hidden" name="categoryName" value="<?php echo $this->categoryName; ?>" />
+						<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+						<input type="file" name="categoryImage" id="categoryImage" />
+						<input type="hidden" name="update" value="<?php echo $this->update ?>"/> 
+						<input type="hidden" name="categoryId" value="<?php echo $this->categoryId; ?>"/>
+					</td>
+					<td><input type="submit" name="save" value="Zapisz" /></td>
+				</tr>
+			</table>
+		</form>
+		<!-- 
+		<ul>
+			<li><a href="/image/upload">Dodaj zdjęcia do galerii</a></li>
+			<li><a href="/image/edit">Edytuj zdjęcia w galerii</a></li>
+			<li><a href="/image/configuration">Ustawienia galerii</a></li>
+
+		</ul>
+		-->
+	</div>
+</div>
+

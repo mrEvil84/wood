@@ -1,0 +1,63 @@
+<?php $this->headTitle()->append('Galeria edycja') ?>
+
+<?= $this->render('imageCategoryMenu.phtml') ?>
+
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <h5>zdjęcia w galerii</h5>
+                <!-- sample configuration data -->
+                <?php $i = 0;
+                $imagesInRow = 4; ?>
+
+                <table class="admin_upoladed_photos_list">
+                    <form action="/image/edit" name="imageSort">
+                        <tr>
+                            <td></td><td></td><td><?= $this->partial('/image/gallerySortCategories.phtml', array('categories' => $this->categories, 'sort_category_id' => $this->sort_category_id)); ?></td> 
+                            <td><input type="submit" name="Sortuj" value="Sortuj"/></td>
+                        </tr>
+                        <input type="hidden" name="ac" value="sort" />
+                    </form>
+
+                    <?php foreach ($this->entries as $entry): ?>
+    <?php if ($entry->getCategoryId() != -1): ?>
+
+                            <form action="/image/edit" name="imageSave">
+                                <tr class="admin_upoladed_photos_list_tr">
+                                    <td class="admin_upoladed_photos_list_thumb">
+                                        <!-- sigle thumb image --> <img
+                                            src="/galleryImages/thumbs/<?php echo $entry->getThumbName() ?>" />
+                                    </td>
+
+                                    <td>
+                                        <textarea name="imageDescription" rows=7 cols=40>
+        <?php echo $entry->getDescription() ?>
+                                        </textarea>
+                                    </td>
+
+                                    <td>
+        <?= $this->partial('/image/galleryCategories.phtml', array('categories' => $this->categories, 'category_id' => $entry->getCategoryId())) ?>
+                                    </td>
+
+                                    <td>
+                                        <input type="hidden" name="ac" value="update" /> 
+                                        <input type="hidden" name="imageId" value="<?php echo $entry->getId() ?>" />
+                                        <input type="hidden" name="sort_category_id" value="<?php echo $this->sort_category_id ?>"/>
+                                        <input type="submit" name="save" value="Zapisz" />
+                                    </td>
+                                    <td class="admin_upoladed_photos_list_btn"><a
+                                            href="/image/edit?ac=delete&id=<?php echo $entry->getId() ?>&imageName=<?php echo $entry->getImageName() ?>&sort_category_id=<?php echo $this->sort_category_id; ?>">Usuń
+                                            zdjęcie</a>
+                                    </td>
+
+                                </tr>
+                            </form>
+                        <?php endif; ?>
+
+<?php endforeach ?>
+                </table>
+            </div>
+        </div>        
+    </div>
+</section>

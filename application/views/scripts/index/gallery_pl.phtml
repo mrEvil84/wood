@@ -1,0 +1,44 @@
+<?php $this->headTitle()->append('Galeria') ?>
+<section>
+    <div id="nav" class="row">
+        <div class="large-12 columns">
+        	<div class="panelLeft"><?php echo $this->categoryName; ?></div>
+            <div class="panel">
+                <a href="/index/gallerycategory?category_id=<?php echo $this->categoryId; ?>">Powrót</a>
+            </div>
+        </div>
+</section>
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <div id="gallery">
+                    <!-- sample configuration data -->
+                    <?php
+                    $i = 1;
+                    $imagesInRow = 4;
+                    ?>
+                    <?php foreach ($this->paginator as $entry): ?>
+    <?php if ($i < $imagesInRow) { ?>
+                            <!-- sigle thumb image -->
+                            <div class="large-4 columns">
+                                <div class="panel">  
+                                    <a href="/index/showsingleimage?page=<?php echo $this->page; ?>&category_id=<?php echo $this->categoryId; ?>&imageId=<?php echo $entry->getId(); ?>&image_name=<?php echo $entry->getImageName() ?>"><img src="/galleryImages/thumbs/<?php echo $entry->getThumbName() ?>" /></a>
+                                </div>
+                            </div>
+                            <?php $i++; ?>
+    <?php } else { ?>
+                            <!-- sigle thumb image -->
+                            <div class="large-4 columns">
+                                <div class="panel">  
+                                    <a href="/index/showsingleimage?page=<?php echo $this->page; ?>&category_id=<?php echo $this->categoryId; ?>&imageId=<?php echo $entry->getId(); ?>&image_name=<?php echo $entry->getImageName() ?>"><img src="/galleryImages/thumbs/<?php echo $entry->getThumbName() ?>" /></a>
+                                </div>
+                            </div>
+                            <?php $i = 1; ?>
+                        <?php } ?>
+<?php endforeach ?>
+                </div>
+            </div>
+        </div>
+</section>
+<?= $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>

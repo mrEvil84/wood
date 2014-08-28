@@ -1,0 +1,45 @@
+<?php $this->headTitle()->append('Kategorie zdjęć') ?>
+
+<?= $this->render('imageCategoryMenu.phtml') ?>
+
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <h5>kategorie galerii</h5>
+
+                <table class="admin_upoladed_photos_list">
+                    <tr class="admin_upoladed_photos_list_tr">
+                    </tr>
+                    <!-- sample configuration data -->
+                    <?php $i = 0;
+                    $imagesInRow = 4; ?>
+<?php foreach ($this->categories as $category): ?>
+                        <tr class="admin_upoladed_photos_list_tr">
+                            <td class="admin_upoladed_photos_list_thumb"></td>
+                            <td><img
+                                    src="/galleryImages/thumbs/<?php echo $category['categoryThumbName'] ?>" />
+                            </td>
+                            <td><p>
+    <?php echo $category['categoryName']; ?>
+                                </p></td>
+                            <td><input type="hidden" name="ac" value="update" /> <input
+                                    type="hidden" name="imageId"
+                                    value="<?php echo $category['categoryThumbId']; ?>" />
+                            </td>
+                            <td class="admin_upoladed_photos_list_btn"><a
+                                    href="/imagecategory/imageUpdate?categoryName=<?php echo $category['categoryName']; ?>&categoryId=<?php echo $category['categoryId']; ?>&categoryThumbId=<?php echo $category['categoryThumbId']; ?>">Edytuj</a>
+                            </td>
+
+                            <td class="admin_upoladed_photos_list_btn"><a
+                                    href="/imagecategory/delete?&categoryId=<?php echo $category['categoryId']; ?>&categoryThumbId=<?php echo $category['categoryThumbId']; ?>">Usuń</a>
+                            </td>
+
+                        </tr>
+
+<?php endforeach ?>
+                </table>
+            </div>
+        </div>        
+    </div>
+</section>

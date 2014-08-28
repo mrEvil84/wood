@@ -1,0 +1,169 @@
+﻿<!-- application/layouts/scripts/layout.phtml -->
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+
+        <?php //echo $this->headScript()->appendFile('/js/jquery.min.js'); ?>
+        <?php //echo $this->headScript()->appendFile('/foundation/js/vendor/jquery.js'); ?>
+
+
+
+
+        <!-- Foundation4 framework -->
+        <script>
+            document.write('<script src=/foundation/js/vendor/'
+                    + ('__proto__' in {} ? 'zepto' : 'jquery')
+                    + '.js><\/script>');
+        </script>
+
+        <script>
+            $(function() {
+                $(document).foundation();
+            });
+        </script>
+
+        <?php echo $this->headLink()->appendStylesheet('/foundation/css/foundation.css'); ?>
+        <?php echo $this->headLink()->appendStylesheet('/foundation/css/normalize.css'); ?>
+        <?php echo $this->headLink()->appendStylesheet('/css/drewno.css') ?>
+
+        <?php echo $this->headScript()->appendFile('/foundation/js/foundation.min.js'); ?>
+
+
+
+        <!-- Foundation4 -->
+
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headScript() ?>
+        <?php echo $this->headStyle() ?>
+    </head>
+
+    <?php
+//echo $this->navigation()->menu()
+    $lang = new Zend_Session_Namespace('lang');
+    $iterator = $lang->getIterator();
+    $currentLang = $iterator->offsetGet('default_lang');
+    $menu = Zend_Registry::get('menu_lang');
+    $basicData = Zend_Registry::get('basic_data_lang');
+    ?>
+
+
+
+
+    <body class="<?php if (isset($this->layout()->bodyClassName)) {
+        echo $this->layout()->bodyClassName;
+    } else {
+        echo 'default';
+    } ?>">
+        <header id="header">
+            <div class="row">
+                <div class="small-3 large-4 columns">
+                    <div class="panel">
+                    </div>
+                </div>
+                <div class="small-9 large-8 columns">
+                    <div class="panel">
+                        <span class="menuIconEnvelope">xxxxx@wp.pl</span><span class="menuIconPhone">xxx-xxx-xxx</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <nav class="top-bar" style="" data-options="is_hover:false">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1>
+                                <a href="/">
+                                    <div class="logo">
+                                    </div>
+                                </a>
+                            </h1>
+                        </li>
+                        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+
+
+                    <section class="top-bar-section" style="left: 0%;">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="divider"></li>
+                            <li class="<?php if (isset($this->layout()->menuButtonCompanyActive)) {
+        echo $this->layout()->menuButtonCompanyActive;
+    } else {
+        echo 'disactive';
+    } ?>"><a href="/index/company"><?php echo $menu[$currentLang]['company'] ?></a></li>
+                            <li class="divider"></li>
+                            <li class="<?php if (isset($this->layout()->menuButtonTechnologyActive)) {
+        echo $this->layout()->menuButtonTechnologyActive;
+    } else {
+        echo 'disactive';
+    } ?>"><a href="/index/technology"><?php echo $menu[$currentLang]['technology'] ?></a></li>
+                            <li class="divider"></li>
+                            <li class="<?php if (isset($this->layout()->menuButtonGalleryActive)) {
+        echo $this->layout()->menuButtonGalleryActive;
+    } else {
+        echo 'disactive';
+    } ?>"><a href="/index/gallerycategory"><?php echo $menu[$currentLang]['gallery'] ?></a></li>
+                            <li class="divider"></li>
+                            <li class="<?php if (isset($this->layout()->menuButtonInstallmentActive)) {
+        echo $this->layout()->menuButtonInstallmentActive;
+    } else {
+        echo 'disactive';
+    } ?>"><a href="/index/auctions"><?php echo $menu[$currentLang]['auctions'] ?></a></li>
+                            <li class="divider"></li>
+                            <li class="<?php if (isset($this->layout()->menuButtonAboutActive)) {
+        echo $this->layout()->menuButtonAboutActive;
+    } else {
+        echo 'disactive';
+    } ?>"><a href="/index/about"><?php echo $menu[$currentLang]['about'] ?> </a></li>
+                            <li class="divider"></li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="headerTitle" id="company">Firma</div>
+                    <div class="headerTitle" id="technology">Technologia</div>
+                    <div class="headerTitle" id="gallery">Galeria</div>
+                    <div class="headerTitle" id="installment">Raty</div>
+                    <div class="headerTitle" id="auctions">Aukcje</div>
+                    <div class="headerTitle" id="about">O nas</div>
+
+
+                </div>
+            </div>
+            </div>
+        </header>
+
+        <div id="main-box">
+            <div id="content">
+<?php echo $this->layout()->content ?>
+            </div>
+        </div>
+        <!--#main-->
+        <!--
+        <div class="breadcrumbs">
+<?php echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" :: ") ?>
+        </div>
+<?php if ($this->username != null) { ?>
+                <a href="/auth/logout" id="logoutButton" alt="Logut">Wyloguj</a>
+<?php } ?>
+        -->
+
+        <footer id="footer">
+            <div class="row">
+                <div class="large-12 columns"> 
+                    <span>xxx-xxx-xxx</span>
+                    *
+                    <span> <a href="http://mywood.woodworld.bplaced.net/wood/public/index/about" title="" class="site-name"><?php echo $basicData[$currentLang]['pageName'] ?></a> © 2013</span>
+                    *
+                    <span><a href="mailto:grzywi2@wp.pl">xxxxx@xx.pl</a> </span>                 
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
